@@ -39,8 +39,8 @@ public class Spitter : MonoBehaviour
 
     private IEnumerator SecondsToKill()
     {
-        mover.IsActive = false;
         StopCoroutine(walkCoroutine);
+        mover.IsActive = false;
 
         enemySpriteAnimator.SetTrigger("Death");
         GetComponentInChildren<Collider2D>().enabled = false;

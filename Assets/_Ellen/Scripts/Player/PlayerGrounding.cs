@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerSoundController))]
 public class PlayerGrounding : MonoBehaviour
 {
     public bool IsGrounded {  get; private set; }
@@ -7,15 +8,21 @@ public class PlayerGrounding : MonoBehaviour
     private Transform groundMovingObject;
     private Vector3? groundMovObjectLastPosition;
 
+    private PlayerSoundController soundController;
 
+    private void Start()
+    {
+        soundController = GetComponent<PlayerSoundController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.isTrigger == true)
             return;
 
         IsGrounded = true;
+        soundController.Play(soundController.LandFX);
 
-        if(collision.GetComponentInParent<Mover>() != null)
+        if (collision.GetComponentInParent<Mover>() != null)
         {
             groundMovingObject = collision.transform;
         }

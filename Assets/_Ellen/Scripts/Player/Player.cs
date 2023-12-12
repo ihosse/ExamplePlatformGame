@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerGrounding))]
 [RequireComponent(typeof(PlayerMelee))]
+[RequireComponent(typeof(PlayerSoundController))]
 public class Player : MonoBehaviour
 {
     public event Action OnDeath;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rigidbody2d;
     private PlayerGrounding playerGrounding;
     private PlayerMelee playerMelee;
+    private PlayerSoundController soundController;
 
     private float directionX;
     private bool isJump;
@@ -36,12 +38,14 @@ public class Player : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         playerGrounding = GetComponent<PlayerGrounding>();
         playerMelee = GetComponent<PlayerMelee>();
+        soundController = GetComponent<PlayerSoundController>();
     }
 
     private void FixedUpdate()
     {
         if (isJump)
         {
+            soundController.Play(soundController.JumpFX);
             rigidbody2d.AddForce(Vector2.up * jumpForce);
             isJump = false;
         }
@@ -93,6 +97,8 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             animator.SetTrigger("Attack");
+            soundController.Play(soundController.AttackFX);
+
             StartCoroutine(EnableMeleeCollisions());
         }
     }
@@ -116,6 +122,7 @@ public class Player : MonoBehaviour
         virtualCamera.Follow = null;
 
         animator.SetTrigger("Death");
+        soundController.Play(soundController.DeathFX);
 
         directionX = 0;
         rigidbody2d.velocity = Vector2.zero;
