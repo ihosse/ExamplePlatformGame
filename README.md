@@ -7,12 +7,12 @@ All the gameplay code was redone by myself.
 - Observer pattern
 - Behavior State Machine
 - URP Post Processing
-- 2D TileMaps, Rule tiles and ilumination 
+- 2D TileMaps, RuleTiles and 2D lights 
 
 ## Screen Shots:
-![ScreenShot 1](Assets/Readme/ScreenShot_1.jpg)
-![ScrrenShot 2](Assets/Readme/ScreenShot_2.jpg)
-![ScreenShot 3](Assets/Readme/ScreenShot_3.jpg)
+<img src="https://github.com/ihosse/ExamplePlatformGame/blob/main/Assets/Readme/ScreenShot_1.jpg" width="500" height="280">
+<img src="https://github.com/ihosse/ExamplePlatformGame/blob/main/Assets/Readme/ScreenShot_2.jpg" width="500" height="280">
+<img src="https://github.com/ihosse/ExamplePlatformGame/blob/main/Assets/Readme/ScreenShot_3.jpg" width="500" height="280">
 
 ## Controls:
 - Use the arrow keys to left and right
