@@ -15,7 +15,7 @@ All the gameplay code was redone by myself.
 <img src="https://github.com/ihosse/ExamplePlatformGame/blob/main/Assets/Readme/ScreenShot_3.jpg" width="500" height="280">
 
 ## Controls:
-- Use the arrow keys to left and right
+- Arrow keys run
 - Space to Jump
 - Mouse click to attack
 
